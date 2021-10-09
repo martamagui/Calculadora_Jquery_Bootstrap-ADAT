@@ -3,3 +3,6 @@
   border-radius: 1.5em;
   box-shadow: 10px 2px 2px rgba(41, 73, 179, 0.05), 30px -16px #ff802b;
 }
+.opacity-dis {
+  opacity: 0.5;
+}

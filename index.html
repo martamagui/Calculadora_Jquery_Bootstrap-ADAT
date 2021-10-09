@@ -21,7 +21,7 @@
   <body>
     <!--Cabecera-->
     <div
-      class="container-fluid d-flex justify-content-center flex-wrap p-4"
+      class="container-fluid d-flex justify-content-center flex-wrap p-4 mb-4"
       id="header"
     >
       <h1 class="col-9 text-center">Calculadora con Jquery y Bootstrap</h1>
@@ -39,9 +39,11 @@
       id="container"
     >
       <div class="col-lg-2 p-4" id="calculadora">
-        <form class="">
-          <div class="form-group mt-2 mb-3">
-            <label for="formGroupExampleInput">Primer número</label>
+        <form class="col-12">
+          <div class="form-group m-2" id="primer-num">
+            <label for="formGroupExampleInput" class="text-light fw-bold mb-2"
+              >Primer número</label
+            >
             <input
               type="text"
               class="form-control"
@@ -49,13 +51,16 @@
               placeholder="Primer número "
             />
           </div>
-          <div class="form-group mt-3 mb-2">
-            <label for="formGroupExampleInput2">Segundo número</label>
+          <div class="form-group m-2 opacity-dis" id="segundo-num">
+            <label for="formGroupExampleInput2" class="text-light fw-bold mb-2"
+              >Segundo número</label
+            >
             <input
               type="text"
               class="form-control"
               id="formGroupExampleInput2"
               placeholder="Segundo número"
+              disabled="true"
             />
           </div>
         </form>
@@ -65,40 +70,62 @@
             pt-3
             pb-3
             d-flex
+            m-2
             flex-row flex-wrap
             justify-content-between
             align-items-center
           "
           id="grupo_botones"
         >
-          <button type="button" class="btn btn-primary m-1" onclick="">
-            +
-          </button>
-          <button type="button" class="btn btn-primary m-1" onclick="">
-            -
-          </button>
-          <button type="button" class="btn btn-primary m-1" onclick="">
-            x
-          </button>
-          <button type="button" class="btn btn-primary m-1" onclick="">
-            ÷
-          </button>
-          <button type="button" class="btn btn-primary m-1" onclick="">
-            √
-          </button>
-          <button type="button" class="btn btn-primary m-1" onclick="">
-            Sen
-          </button>
-          <button type="button" class="btn btn-primary m-1" onclick="">
-            Cos
-          </button>
-          <button type="button" class="btn btn-primary m-1" onclick="">
-            Tan
-          </button>
-          <button type="button" class="btn btn-primary m-1" onclick="">
-            Cot
+          <div class="col-12 mb-2 d-flex justify-content-between">
+            <button type="button" class="btn btn-primary col-3" id="btnSumar">
+              +
+            </button>
+            <button type="button" class="btn btn-primary col-3" id="btnRestar">
+              -
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary col-3"
+              id="btnMultiplicar"
+            >
+              x
+            </button>
+          </div>
+          <div class="col-12 mb-2 d-flex justify-content-between">
+            <button type="button" class="btn btn-primary col-3" id="btnDividir">
+              ÷
+            </button>
+            <button type="button" class="btn btn-primary col-3" id="btnRaiz">
+              √
+            </button>
+            <button type="button" class="btn btn-primary col-3" id="btnSeno">
+              Sen
+            </button>
+          </div>
+          <div class="col-12 mb-2 d-flex justify-content-between">
+            <button type="button" class="btn btn-primary col-3" id="btnCoseno">
+              Cos
+            </button>
+            <button type="button" class="btn btn-primary col-3" id="btnTan">
+              Tan
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary col-3"
+              id="btnCotangente"
+            >
+              Cot
+            </button>
+          </div>
+          <button type="button" class="btn btn-primary col-12" id="btnIgual">
+            =
           </button>
         </div>
+      </div>
+      <div id="resultado">
+        <p id="muchotexto"></p>
+        <p class="small" id="historial"></p>
       </div>
     </div>
     <!--JQuery script-->
