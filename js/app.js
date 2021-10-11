@@ -94,5 +94,7 @@ $(document).ready(() => {
     recogerNums();
     operar();
     annadirResultado(resultado);
+    $("#formGroupExampleInput").val("");
+    $("#formGroupExampleInput2").val("");
   });
 });
