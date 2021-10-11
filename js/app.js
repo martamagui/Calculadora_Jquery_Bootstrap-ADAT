@@ -92,6 +92,7 @@ $(document).ready(() => {
 
   $("#btnIgual").click(() => {
     recogerNums();
+    operar();
     annadirResultado(resultado);
   });
 });
