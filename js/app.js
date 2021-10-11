@@ -5,22 +5,19 @@ $(document).ready(() => {
   let operacion = "";
   let num1 = 1.0;
   let num2 = 1.0;
-  let resultado = 1.0;
+  let resultado;
 
   const enableSegundoCampo = () => {
     $("#segundo-num").removeClass("opacity-dis");
     $("#formGroupExampleInput2").removeAttr("disabled");
   };
+
   const recogerNums = () => {
     if (
       operacion === "sumar" ||
       operacion === "restar" ||
       operacion === "multiplicar" ||
-      operacion === "dividir" ||
-      operacion === "seno" ||
-      operacion === "coseno" ||
-      operacion === "tangente" ||
-      operacion === "cotangente"
+      operacion === "dividir"
     ) {
       num1 = parseFloat($("#formGroupExampleInput").val());
       num2 = parseFloat($("#formGroupExampleInput2").val());
@@ -37,17 +34,20 @@ $(document).ready(() => {
       resultado = num1 * num2;
     } else if (operacion === "dividir") {
       resultado = num1 / num2;
-    } else if (operacion === "seno") {
-      //-------------------------------------------------Voy por aquí
-    } else if (operacion === "coseno") {
-    } else if (operacion === "tangente") {
-    } else if (operacion === "cotangente") {
-    } else if (operacion === "raiz") {
+    } else {
     }
   };
   const annadirResultado = (resultado) => {
     console.log(resultado);
     $("#muchotexto").text(`Resultado: ${resultado}`);
+  };
+  const mostrarResultado = () => {
+    recogerNums();
+    operar();
+    annadirResultado(resultado);
+    $("#formGroupExampleInput").val("");
+    $("#formGroupExampleInput2").val("");
+    operacion = "";
   };
 
   //Events listeners
@@ -68,33 +68,29 @@ $(document).ready(() => {
     operacion = "dividir";
     enableSegundoCampo();
   });
-
   $("#btnRaiz").click(() => {
-    operacion = "raiz";
+    resultado = ` Raíz: ${Math.sqrt(num1)}`;
+    mostrarResultado();
   });
 
   $("#btnSeno").click(() => {
-    operacion = "seno";
-    enableSegundoCampo();
+    resultado = ` Seno: ${Math.sin(num1)}`;
+    mostrarResultado();
   });
   $("#btnCoseno").click(() => {
-    operacion = "coseno";
-    enableSegundoCampo();
+    resultado = ` Coseno: ${Math.cos(num1)}`;
+    mostrarResultado();
   });
-  $("#btnTangente").click(() => {
-    operacion = "tangente";
-    enableSegundoCampo();
+  $("#btnTan").click(() => {
+    resultado = ` Tangente: ${Math.tan(num1)}`;
+    mostrarResultado();
   });
   $("#btnCotangente").click(() => {
-    operacion = "cotangente";
-    enableSegundoCampo();
+    resultado = ` Cotangente: ${1 / Math.tan(num1)}`;
+    mostrarResultado();
   });
 
   $("#btnIgual").click(() => {
-    recogerNums();
-    operar();
-    annadirResultado(resultado);
-    $("#formGroupExampleInput").val("");
-    $("#formGroupExampleInput2").val("");
+    mostrarResultado();
   });
 });
