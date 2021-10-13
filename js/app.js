@@ -8,7 +8,7 @@ $(document).ready(() => {
   let operacion = "";
   let num1 = 1.0;
   let num2 = 1.0;
-  let resultado;
+  let resultado = 1.0;
 
   /* 
   Función que activa el segundo campo si fuera necesario 
@@ -16,6 +16,14 @@ $(document).ready(() => {
   const enableSegundoCampo = () => {
     $("#segundo-num").removeClass("opacity-dis");
     $("#formGroupExampleInput2").removeAttr("disabled");
+  };
+
+  /*
+  Función que desactiva el segundo input de texto y le añade la clase "opacity-dis" la cual baja la opacidad a la mitad
+  */
+  const disableSegundoCampo = () => {
+    $("#segundo-num").addClass("opacity-dis");
+    $("#formGroupExampleInput2").prop("disabled", true);
   };
 
   /* 
@@ -39,17 +47,18 @@ $(document).ready(() => {
   Ejecuta la operación oportuna en función de la operación seleccionada.
   */
   const operar = () => {
-    if (operacion === "sumar") {
+    if (operacion === "+") {
       resultado = num1 + num2;
-    } else if (operacion === "restar") {
+    } else if (operacion === "-") {
       resultado = num1 - num2;
-    } else if (operacion === "multiplicar") {
+    } else if (operacion === "x") {
       resultado = num1 * num2;
-    } else if (operacion === "dividir") {
+    } else if (operacion === ":") {
       resultado = num1 / num2;
     } else {
     }
   };
+
   /*
   Añade el reultado al párrafo que se encuentra debajo de la calculadora
    */
@@ -58,6 +67,20 @@ $(document).ready(() => {
     $("#muchotexto").text(`Resultado: ${resultado}`);
   };
 
+  const appenAlHistorial = () => {
+    if (
+      operacion === "+" ||
+      operacion === "-" ||
+      operacion === "x" ||
+      operacion === ":"
+    ) {
+      $("#historial").prepend(
+        `${num1} ${operacion} ${num2} = ${resultado}<br>`
+      );
+    } else {
+      $("#historial").prepend(`${resultado}<br>`);
+    }
+  };
 
   /*
   Función la cual llama a las anteriores funciones nombradas:
@@ -66,6 +89,7 @@ $(document).ready(() => {
     annadirResultado(resultado);
   Seguidamente, resetea los valores introducidos en los campos de texto.
   Puede ser llamada desde el botón de igual o el botón de: raíz, seno, coseno, tangente y cotangente
+  Vuelve a bloquear el segundo campo de texto.
   */
   const mostrarResultado = () => {
     recogerNums();
@@ -73,63 +97,72 @@ $(document).ready(() => {
     annadirResultado(resultado);
     $("#formGroupExampleInput").val("");
     $("#formGroupExampleInput2").val("");
+    disableSegundoCampo();
+    appenAlHistorial();
     operacion = "";
   };
 
   // ------------- EVENTS LISTENERS -------------
-  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
+
+  /*Escucha cuando se pulsa "btnSumar" del DOM y cambia la operación al valor "+", activa el segundo campo */
   $("#btnSumar").click(() => {
-    operacion = "sumar";
+    operacion = "+";
     enableSegundoCampo();
   });
-  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
+  /*Escucha cuando se pulsa "btnRestar" del DOM y cambia la operación a "-", activa el segundo campo */
   $("#btnRestar").click(() => {
-    operacion = "restar";
+    operacion = "-";
     enableSegundoCampo();
   });
 
-  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
+  /*Escucha cuando se pulsa "btnMultiplicar" del DOM y cambia la operación a "x", activa el segundo campo */
   $("#btnMultiplicar").click(() => {
-    operacion = "multiplicar";
+    operacion = "x";
     enableSegundoCampo();
   });
 
-  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
+  /*Escucha cuando se pulsa "btnDividir" del DOM y cambia la operación a ":", activa el segundo campo */
   $("#btnDividir").click(() => {
-    operacion = "dividir";
+    operacion = ":";
     enableSegundoCampo();
   });
 
-  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
+  /*Escucha cuando se pulsa "btnRaiz" del DOM y cambia la operación a "√", llama a mostrarResultado() */
   $("#btnRaiz").click(() => {
+    operacion = "√";
     resultado = ` Raíz: ${Math.sqrt(num1)}`;
     mostrarResultado();
   });
 
-  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
+  /*Escucha cuando se pulsa "btnSeno" del DOM y cambia la operación a "Seno:" , llama a mostrarResultado() */
   $("#btnSeno").click(() => {
+    operacion = "Seno:";
     resultado = ` Seno: ${Math.sin(num1)}`;
     mostrarResultado();
   });
 
-  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
+  /*Escucha cuando se pulsa "btnCoseno" del DOM y cambia la operación a "Coseno:", llama a mostrarResultado() */
   $("#btnCoseno").click(() => {
+    operacion = "Coseno:";
     resultado = ` Coseno: ${Math.cos(num1)}`;
     mostrarResultado();
   });
 
-  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
+  /*Escucha cuando se pulsa "btnTan" y cambia la operación a "Tangente:", llama a mostrarResultado() */
   $("#btnTan").click(() => {
+    operacion = "Tangente:";
     resultado = ` Tangente: ${Math.tan(num1)}`;
     mostrarResultado();
   });
-  
-  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
+
+  /*Escucha cuando se pulsa "btnCotangente" y cambia la operación a "Cotangente:", llama a mostrarResultado() */
   $("#btnCotangente").click(() => {
+    operacion = "Cotangente:";
     resultado = ` Cotangente: ${1 / Math.tan(num1)}`;
     mostrarResultado();
   });
 
+  /*Escucha cuando se pulsa "btnIgual", llama a mostrarResultado() */
   $("#btnIgual").click(() => {
     mostrarResultado();
   });
