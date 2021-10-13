@@ -77,41 +77,54 @@ $(document).ready(() => {
   };
 
   // ------------- EVENTS LISTENERS -------------
-  /* */
+  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
   $("#btnSumar").click(() => {
     operacion = "sumar";
     enableSegundoCampo();
   });
-
+  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
   $("#btnRestar").click(() => {
     operacion = "restar";
     enableSegundoCampo();
   });
+
+  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
   $("#btnMultiplicar").click(() => {
     operacion = "multiplicar";
     enableSegundoCampo();
   });
+
+  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
   $("#btnDividir").click(() => {
     operacion = "dividir";
     enableSegundoCampo();
   });
+
+  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
   $("#btnRaiz").click(() => {
     resultado = ` Raíz: ${Math.sqrt(num1)}`;
     mostrarResultado();
   });
 
+  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
   $("#btnSeno").click(() => {
     resultado = ` Seno: ${Math.sin(num1)}`;
     mostrarResultado();
   });
+
+  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
   $("#btnCoseno").click(() => {
     resultado = ` Coseno: ${Math.cos(num1)}`;
     mostrarResultado();
   });
+
+  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
   $("#btnTan").click(() => {
     resultado = ` Tangente: ${Math.tan(num1)}`;
     mostrarResultado();
   });
+  
+  /*Escucha cuando se pulsa ___ y cambia la operación a __, activa el segundo campo */
   $("#btnCotangente").click(() => {
     resultado = ` Cotangente: ${1 / Math.tan(num1)}`;
     mostrarResultado();
