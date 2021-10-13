@@ -1,8 +1,10 @@
 #calculadora {
-  background-color: #609cf7;
-  border-radius: 1.5em;
-  box-shadow: 10px 2px 2px rgba(41, 73, 179, 0.05), 30px -16px #ff802b;
+  box-shadow: 10px 2px 3px rgba(41, 73, 179, 0.05), 25px -16px #0b59cf;
 }
 .opacity-dis {
   opacity: 0.5;
+}
+body {
+  background-color: #9ec5fe;
+  min-height: 100vh;
 }
