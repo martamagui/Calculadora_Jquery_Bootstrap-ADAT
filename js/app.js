@@ -14,7 +14,7 @@ $(document).ready(() => {
   Función que activa el segundo campo si fuera necesario 
   */
   const enableSegundoCampo = () => {
-    $("#segundo-num").removeClass("opacity-dis");
+    $("#segundo-num").removeClass("opacity-50");
     $("#formGroupExampleInput2").removeAttr("disabled");
   };
 
@@ -22,7 +22,7 @@ $(document).ready(() => {
   Función que desactiva el segundo input de texto y le añade la clase "opacity-dis" la cual baja la opacidad a la mitad
   */
   const disableSegundoCampo = () => {
-    $("#segundo-num").addClass("opacity-dis");
+    $("#segundo-num").addClass("opacity-50");
     $("#formGroupExampleInput2").prop("disabled", true);
   };
 

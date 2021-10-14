@@ -1,76 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Marta Molina Aguilera" />
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
-      crossorigin="anonymous"
-    />
-    <!-- Hojas de estilos-->
-    <link rel="stylesheet" href="./styles/styles.css" />
-    <title>Calculadora-MartaMolina</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Marta Molina Aguilera" />
 
-  <body class="bg-primary bg-gradient">
-    <!--Cabecera-->
-    <div
-      class="container-fluid d-flex justify-content-center flex-wrap p-4 mb-4"
-      id="header"
-    >
-      <h1 class="col-9 text-center p-2 text-light">
-        Calculadora con Jquery y Bootstrap
-      </h1>
-      <h2 class="col-9 text-center text-light opacity-75">
-        Marta Molina Aguilera
-      </h2>
-    </div>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous" />
+  <!-- Hojas de estilos-->
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <title>Calculadora-MartaMolina</title>
+</head>
 
-    <div
-      class="
+<body class="bg-primary bg-gradient">
+  <!--Cabecera-->
+  <div class="container-fluid d-flex justify-content-center flex-wrap p-4 mb-4" id="header">
+    <h1 class="col-9 text-center p-2 text-light">
+      Calculadora con Jquery y Bootstrap
+    </h1>
+    <h2 class="col-9 text-center text-light opacity-75">
+      Marta Molina Aguilera
+    </h2>
+  </div>
+
+  <div class="
         containerfluid
         d-flex
         flex-column
         justify-content-center
         align-items-center
-      "
-      id="container"
-    >
-      <div class="col-lg-2 p-4 bg-light rounded-3" id="calculadora">
-        <form class="col-12">
-          <div class="form-group m-2" id="primer-num">
-            <label for="formGroupExampleInput" class="text-dark fw-bold mb-2"
-              >Primer número</label
-            >
-            <input
-              type="text"
-              class="form-control border-info"
-              id="formGroupExampleInput"
-              placeholder="Primer número "
-            />
-          </div>
-          <div class="form-group m-2 opacity-dis" id="segundo-num">
-            <label for="formGroupExampleInput2" class="text-dark fw-bold mb-2"
-              >Segundo número</label
-            >
-            <input
-              type="text"
-              class="form-control border-info"
-              id="formGroupExampleInput2"
-              placeholder="Segundo número"
-              disabled="true"
-            />
-          </div>
-        </form>
+      " id="container">
+    <div class="col-lg-2 p-4 bg-light rounded-3" id="calculadora">
+      <form class="col-12">
+        <div class="form-group m-2" id="primer-num">
+          <label for="formGroupExampleInput" class="text-dark fw-bold mb-2">Primer número</label>
+          <input type="text" class="form-control border-info" id="formGroupExampleInput" placeholder="Primer número " />
+        </div>
+        <div class="form-group m-2 opacity-50" id="segundo-num">
+          <label for="formGroupExampleInput2" class="text-dark fw-bold mb-2">Segundo número</label>
+          <input type="text" class="form-control border-info" id="formGroupExampleInput2" placeholder="Segundo número"
+            disabled="true" />
+        </div>
+      </form>
 
-        <div
-          class="
+      <div class="
             pt-3
             pb-3
             d-flex
@@ -78,64 +54,55 @@
             flex-row flex-wrap
             justify-content-between
             align-items-center
-          "
-          id="grupo_botones"
-        >
-          <div class="col-12 mb-2 d-flex justify-content-between">
-            <button type="button" class="btn btn-primary col-3" id="btnSumar">
-              +
-            </button>
-            <button type="button" class="btn btn-primary col-3" id="btnRestar">
-              -
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary col-3"
-              id="btnMultiplicar"
-            >
-              x
-            </button>
-          </div>
-          <div class="col-12 mb-2 d-flex justify-content-between">
-            <button type="button" class="btn btn-primary col-3" id="btnDividir">
-              ÷
-            </button>
-            <button type="button" class="btn btn-primary col-3" id="btnRaiz">
-              √
-            </button>
-            <button type="button" class="btn btn-primary col-3" id="btnSeno">
-              Sen
-            </button>
-          </div>
-          <div class="col-12 mb-2 d-flex justify-content-between">
-            <button type="button" class="btn btn-primary col-3" id="btnCoseno">
-              Cos
-            </button>
-            <button type="button" class="btn btn-primary col-3" id="btnTan">
-              Tan
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary col-3"
-              id="btnCotangente"
-            >
-              Cot
-            </button>
-          </div>
-          <button type="button" class="btn btn-primary col-12" id="btnIgual">
-            =
+          " id="grupo_botones">
+        <div class="col-12 mb-2 d-flex justify-content-between">
+          <button type="button" class="btn btn-primary col-3" id="btnSumar">
+            +
+          </button>
+          <button type="button" class="btn btn-primary col-3" id="btnRestar">
+            -
+          </button>
+          <button type="button" class="btn btn-primary col-3" id="btnMultiplicar">
+            x
           </button>
         </div>
-      </div>
-      <div id="resultado" class="mt-2">
-        <p id="muchotexto" class="p-4 h2 text-light text-center">Resultado</p>
-        <h2 class="h4 text-light text-center opacity-50">Historial</h2>
-        <p id="historial" class="small text-center text-light opacity-50"></p>
+        <div class="col-12 mb-2 d-flex justify-content-between">
+          <button type="button" class="btn btn-primary col-3" id="btnDividir">
+            ÷
+          </button>
+          <button type="button" class="btn btn-primary col-3" id="btnRaiz">
+            √
+          </button>
+          <button type="button" class="btn btn-primary col-3" id="btnSeno">
+            Sen
+          </button>
+        </div>
+        <div class="col-12 mb-2 d-flex justify-content-between">
+          <button type="button" class="btn btn-primary col-3" id="btnCoseno">
+            Cos
+          </button>
+          <button type="button" class="btn btn-primary col-3" id="btnTan">
+            Tan
+          </button>
+          <button type="button" class="btn btn-primary col-3" id="btnCotangente">
+            Cot
+          </button>
+        </div>
+        <button type="button" class="btn btn-primary col-12" id="btnIgual">
+          =
+        </button>
       </div>
     </div>
-    <!--JQuery script-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!--Script Jquery y JS-->
-    <script src="js/app.js"></script>
-  </body>
+    <div id="resultado" class="mt-2">
+      <p id="muchotexto" class="p-4 h2 text-light text-center">Resultado</p>
+      <h2 class="h4 text-light text-center opacity-50">Historial</h2>
+      <p id="historial" class="small text-center text-light opacity-50"></p>
+    </div>
+  </div>
+  <!--JQuery script-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!--Script Jquery y JS-->
+  <script src="js/app.js"></script>
+</body>
+
 </html>
