@@ -36,11 +36,14 @@ $(document).ready(() => {
       operacion === "x" ||
       operacion === ":"
     ) {
-      num1 = parseFloat($("#formGroupExampleInput").val());
       num2 = parseFloat($("#formGroupExampleInput2").val());
-    } else {
     }
     num1 = parseFloat($("#formGroupExampleInput").val());
+    if (Number.isNaN(num1) || Number.isNaN(num2)) {
+      return false;
+    } else {
+      return true;
+    }
   };
 
   /*
@@ -74,7 +77,6 @@ $(document).ready(() => {
   Añade el reultado al párrafo que se encuentra debajo de la calculadora
    */
   const annadirResultado = (resultado) => {
-    console.log(resultado);
     $("#muchotexto").text(resultado);
   };
 
@@ -95,13 +97,19 @@ $(document).ready(() => {
   Vuelve a bloquear el segundo campo de texto.
   */
   const mostrarResultado = () => {
-    recogerNums();
-    operar();
-    annadirResultado(resultado);
-    $("#formGroupExampleInput").val("");
-    $("#formGroupExampleInput2").val("");
+    let seguir = recogerNums();
+    if (seguir && operacion != "") {
+      operar();
+      annadirResultado(resultado);
+      $("#formGroupExampleInput").val("");
+      $("#formGroupExampleInput2").val("");
+      appenAlHistorial();
+    } else {
+      annadirResultado("Datos no válidos");
+      $("#formGroupExampleInput").val("Dato no válido");
+      $("#formGroupExampleInput2").val("");
+    }
     disableSegundoCampo();
-    appenAlHistorial();
     operacion = "";
   };
 
