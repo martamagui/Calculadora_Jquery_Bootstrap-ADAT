@@ -26,9 +26,16 @@ $(document).ready(() => {
     $("#formGroupExampleInput2").prop("disabled", true);
   };
 
+  /*
+  Función que desactiva los botones operacionales.
+  */
   const desactivarBtns = () => {
     $(".btnOperacion").prop("disabled", true);
   };
+
+  /*
+  Función que activa  los botones operacionales.
+  */
   const activarBtns = () => {
     $(".btnOperacion").removeAttr("disabled");
   };
@@ -83,7 +90,7 @@ $(document).ready(() => {
   /*
   Añade el reultado al párrafo que se encuentra debajo de la calculadora
    */
-  const annadirResultado = (resultado) => {
+  const annadirResultado = () => {
     $("#muchotexto").text(resultado);
   };
 
@@ -95,11 +102,13 @@ $(document).ready(() => {
   };
 
   /*
-  Función la cual llama a las anteriores funciones nombradas:
+  Función la cual llama a las anteriores funciones nombradas si los datos introducidos son válidos:
     recogerNums();
     operar();
-    annadirResultado(resultado);
-  Seguidamente, resetea los valores introducidos en los campos de texto.
+    annadirResultado();
+    appenAlHistorial();
+    disableSegundoCampo()
+  Seguidamente, resetea los valores introducidos en los campos de texto y llama a disableSegundoCampo().
   Puede ser llamada desde el botón de igual o el botón de: raíz, seno, coseno, tangente y cotangente
   Vuelve a bloquear el segundo campo de texto.
   */
@@ -107,7 +116,7 @@ $(document).ready(() => {
     let seguir = recogerNums();
     if (seguir && operacion != "") {
       operar();
-      annadirResultado(resultado);
+      annadirResultado();
       $("#formGroupExampleInput").val("");
       $("#formGroupExampleInput2").val("");
       appenAlHistorial();
@@ -122,46 +131,46 @@ $(document).ready(() => {
 
   // ------------- EVENTS LISTENERS -------------
 
-  /*Escucha cuando se pulsa "btnSumar" del DOM y cambia la operación al valor "+", activa el segundo campo */
+  /*Escucha cuando se pulsa "btnSumar" y cambia la operación al valor "+", activa el segundo campo */
   $("#btnSumar").click(() => {
     operacion = "+";
     enableSegundoCampo();
     desactivarBtns();
   });
-  /*Escucha cuando se pulsa "btnRestar" del DOM y cambia la operación a "-", activa el segundo campo */
+  /*Escucha cuando se pulsa "btnRestar" y cambia la operación a "-", activa el segundo campo */
   $("#btnRestar").click(() => {
     operacion = "-";
     enableSegundoCampo();
     desactivarBtns();
   });
 
-  /*Escucha cuando se pulsa "btnMultiplicar" del DOM y cambia la operación a "x", activa el segundo campo */
+  /*Escucha cuando se pulsa "btnMultiplicar" y cambia la operación a "x", activa el segundo campo */
   $("#btnMultiplicar").click(() => {
     operacion = "x";
     enableSegundoCampo();
     desactivarBtns();
   });
 
-  /*Escucha cuando se pulsa "btnDividir" del DOM y cambia la operación a ":", activa el segundo campo */
+  /*Escucha cuando se pulsa "btnDividir" y cambia la operación a ":", activa el segundo campo */
   $("#btnDividir").click(() => {
     operacion = ":";
     enableSegundoCampo();
     desactivarBtns();
   });
 
-  /*Escucha cuando se pulsa "btnRaiz" del DOM y cambia la operación a "√", llama a mostrarResultado() */
+  /*Escucha cuando se pulsa "btnRaiz" y cambia la operación a "√", llama a mostrarResultado() */
   $("#btnRaiz").click(() => {
     operacion = "√";
     mostrarResultado();
   });
 
-  /*Escucha cuando se pulsa "btnSeno" del DOM y cambia la operación a "Seno:" , llama a mostrarResultado() */
+  /*Escucha cuando se pulsa "btnSeno" y cambia la operación a "Seno:" , llama a mostrarResultado() */
   $("#btnSeno").click(() => {
     operacion = "Seno";
     mostrarResultado();
   });
 
-  /*Escucha cuando se pulsa "btnCoseno" del DOM y cambia la operación a "Coseno:", llama a mostrarResultado() */
+  /*Escucha cuando se pulsa "btnCoseno" y cambia la operación a "Coseno:", llama a mostrarResultado() */
   $("#btnCoseno").click(() => {
     operacion = "Coseno";
     mostrarResultado();
