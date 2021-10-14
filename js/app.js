@@ -26,6 +26,13 @@ $(document).ready(() => {
     $("#formGroupExampleInput2").prop("disabled", true);
   };
 
+  const desactivarBtns = () => {
+    $(".btnOperacion").prop("disabled", true);
+  };
+  const activarBtns = () => {
+    $(".btnOperacion").removeAttr("disabled");
+  };
+
   /* 
   Función que toma los valores introducidos en los campos de texto y los convierte en números enteros
    */
@@ -119,23 +126,27 @@ $(document).ready(() => {
   $("#btnSumar").click(() => {
     operacion = "+";
     enableSegundoCampo();
+    desactivarBtns();
   });
   /*Escucha cuando se pulsa "btnRestar" del DOM y cambia la operación a "-", activa el segundo campo */
   $("#btnRestar").click(() => {
     operacion = "-";
     enableSegundoCampo();
+    desactivarBtns();
   });
 
   /*Escucha cuando se pulsa "btnMultiplicar" del DOM y cambia la operación a "x", activa el segundo campo */
   $("#btnMultiplicar").click(() => {
     operacion = "x";
     enableSegundoCampo();
+    desactivarBtns();
   });
 
   /*Escucha cuando se pulsa "btnDividir" del DOM y cambia la operación a ":", activa el segundo campo */
   $("#btnDividir").click(() => {
     operacion = ":";
     enableSegundoCampo();
+    desactivarBtns();
   });
 
   /*Escucha cuando se pulsa "btnRaiz" del DOM y cambia la operación a "√", llama a mostrarResultado() */
@@ -171,5 +182,6 @@ $(document).ready(() => {
   /*Escucha cuando se pulsa "btnIgual", llama a mostrarResultado() */
   $("#btnIgual").click(() => {
     mostrarResultado();
+    activarBtns();
   });
 });
